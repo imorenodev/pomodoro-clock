@@ -50,9 +50,9 @@ header {
   height: 20em;
   width: 20em;
   background-color: none;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
-	border-radius: 50%;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50%;
   border: 2px solid gray;
   cursor: pointer;
 }
@@ -70,6 +70,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.break-time {
+  background-color: red;
 }
 
 footer {
