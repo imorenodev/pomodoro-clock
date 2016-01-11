@@ -1,0 +1,77 @@
+body {
+  background-color: #000;
+  text-align: center;
+  color: #FFF;
+}
+
+header {
+ margin-top: 50px; 
+}
+
+/* Break Length & Session Length Controls */
+.controls {
+  display: inline-block;
+  height: 150px;
+  width: 200px;
+  overflow: auto;
+}
+
+.controls .controls-header {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls-header h2 {
+  font-family: sans-serif;
+  font-variant: small-caps;
+}
+
+.controls .controls-dials {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls-dials span {
+  font-size: 2em;
+  padding: 10px;
+}
+
+.controls-dials .decrease, .increase {
+  cursor: pointer;
+}
+
+/* Clock Face */
+.clock-face {
+  margin: auto;
+  height: 20em;
+  width: 20em;
+  background-color: none;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50%;
+  border: 2px solid gray;
+  cursor: pointer;
+}
+
+.clock-header {
+  font-family: Arial-black;
+  margin-top: 50px;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+}
+
+.timer {
+  font-size: 5em;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 300px;
+}
