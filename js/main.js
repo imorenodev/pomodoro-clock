@@ -2,6 +2,7 @@ var $sessionValue = $(".session.amount"),
     $breakValue = $(".break.amount"),
     $clockTimer = $(".timer"),
     $clockFace = $(".clock-face"),
+    $clockHeader = $(".clock-header"),
     breakLength = 5,
     sessionLength = 20,
     currentTime = 1,
@@ -16,8 +17,9 @@ function startCountDown() {
       $clockTimer.html(Math.floor(currentSeconds / 60) + ':' + ((currentSeconds % 60 < 10) ? '0' + currentSeconds % 60 : currentSeconds % 60));
       currentSeconds--;
       if (currentSeconds === 0) {
-      	alert("Break Time");
+        alert("Break Time");
         pauseCountDown();
+        changeClockFace();
         setCurrentTime();
         startBreakCountDown();
       }
@@ -29,12 +31,22 @@ function startBreakCountDown() {
     $clockTimer.html(Math.floor(breakSeconds / 60) + ':' + ((breakSeconds % 60 < 10) ? '0' + breakSeconds % 60 : breakSeconds % 60));
     breakSeconds--;
     if (breakSeconds === 0) {
-  		alert("Work Time");
-  		pauseCountDown();
+      alert("Work Time");
+      pauseCountDown();
+      changeClockFace();
       setBreakTime();
-    	startCountDown();
-  	};
+      startCountDown();
+    };
   }, 1000);
+}
+
+function changeClockFace() {
+  $clockFace.toggleClass("break-time");
+  if ($clockFace.hasClass("break-time")) {
+    $clockHeader.text("Break");
+  } else {
+    $clockHeader.text("Session");
+  }
 }
 
 function setBreakTime() {
@@ -42,7 +54,7 @@ function setBreakTime() {
 }
 
 function pauseCountDown() {
-	clearInterval(timer);
+  clearInterval(timer);
 }
 
 function decBreakLength() {
@@ -83,28 +95,28 @@ function updateTimer() {
 
 /* Break Length Controller */
 $(".break.decrease").click(function(){
-	decBreakLength();
-	updateBreakLength();
+  decBreakLength();
+  updateBreakLength();
 });
 
 $(".break.increase").click(function() {
-	incBreakLength();
+  incBreakLength();
   updateBreakLength();
 });
 
 /* Session Length Controller */
 $(".session.decrease").click(function(){
-	decSessionLength();
+  decSessionLength();
   setCurrentTime();
-	updateSessionLength();
+  updateSessionLength();
   updateTimer();
   pauseCountDown();
 });
 
 $(".session.increase").click(function() {
-	incSessionLength();
+  incSessionLength();
   setCurrentTime();
-	updateSessionLength();
+  updateSessionLength();
   updateTimer();
   pauseCountDown();
 });
@@ -112,8 +124,8 @@ $(".session.increase").click(function() {
 $clockFace.click(function() {
   $(this).toggleClass("toggled");
   if ($(this).hasClass("toggled")) {
-  	startCountDown();
+    startCountDown();
   } else {
-  	pauseCountDown();
+    pauseCountDown();
   }
 });
